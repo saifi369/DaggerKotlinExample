@@ -1,8 +1,9 @@
 package com.saifi369.daggerkotlinexample
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.saifi369.daggerkotlinexample.R.layout.activity_main
+import com.saifi369.daggerkotlinexample.di.DaggerCarInjector
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,10 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
 
-        var engine:Engine= Engine()
-        var battery:Battery=Battery()
-
-        val hondaCar=Car(engine,battery)
+        val hondaCar = DaggerCarInjector.create().getCar()
 
         hondaCar.drive()
     }

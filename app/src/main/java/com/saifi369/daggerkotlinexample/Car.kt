@@ -1,7 +1,11 @@
 package com.saifi369.daggerkotlinexample
 
-class Car (var engine: Engine,
-           var battery: Battery) {
+import javax.inject.Inject
+
+class Car @Inject constructor(
+    var engine: Engine,
+    var battery: Battery
+) {
 
     fun drive() {
         battery.ignite()
