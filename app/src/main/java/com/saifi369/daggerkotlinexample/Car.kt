@@ -13,4 +13,9 @@ class Car @Inject constructor(
         Utils.showTag("Vhrooom! Car is driving")
     }
 
+    @Inject
+    fun attachToLicensePlate(licensePlate: LicensePlate) {
+        licensePlate.attachToCar(this)
+    }
+
 }
