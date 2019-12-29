@@ -12,19 +12,19 @@ object EngineModule {
 
     @Provides
     @JvmStatic
-    fun getCrankShaft(): CrankShaft {
+    fun provideCrankShaft(): CrankShaft {
         return CrankShaft()
     }
 
     @Provides
     @JvmStatic
-    fun getPistonRings(): PistonRings {
+    fun providePistonRings(): PistonRings {
         return PistonRings()
     }
 
     @Provides
     @JvmStatic
-    fun getPistonPiston(pistonRings: PistonRings): Piston {
+    fun providePistonPiston(pistonRings: PistonRings): Piston {
         val piston = Piston(pistonRings)
         piston.sealPiston()
         return piston
@@ -32,7 +32,7 @@ object EngineModule {
 
     @Provides
     @JvmStatic
-    fun getEngine(piston: Piston, crankShaft: CrankShaft): Engine {
+    fun provideEngine(piston: Piston, crankShaft: CrankShaft): Engine {
         return Engine(piston, crankShaft)
     }
 
