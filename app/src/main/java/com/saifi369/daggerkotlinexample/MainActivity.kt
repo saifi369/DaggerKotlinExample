@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.saifi369.daggerkotlinexample.R.layout.activity_main
 import com.saifi369.daggerkotlinexample.di.DaggerCarInjector
+import com.saifi369.daggerkotlinexample.di.DryCellModule
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +16,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
 
-        DaggerCarInjector.create().injectFields(this)
+        DaggerCarInjector.builder()
+            .dryCellModule(DryCellModule(12.6))
+            .build()
+            .injectFields(this)
 
         hondaCar.drive()
     }

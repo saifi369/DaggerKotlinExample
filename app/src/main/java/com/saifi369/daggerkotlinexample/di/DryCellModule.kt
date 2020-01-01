@@ -2,13 +2,22 @@ package com.saifi369.daggerkotlinexample.di
 
 import com.saifi369.daggerkotlinexample.Battery
 import com.saifi369.daggerkotlinexample.DryCellBattery
-import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 @Module
-interface DryCellModule {
+class DryCellModule {
 
-    @Binds
-    fun bindBattery(dryCellBattery: DryCellBattery): Battery
+    private val voltage: Double
+
+    constructor(voltage: Double) {
+        this.voltage = voltage
+    }
+
+    @Provides
+    fun provideBattery(): Battery {
+        return DryCellBattery(voltage)
+    }
+
 
 }

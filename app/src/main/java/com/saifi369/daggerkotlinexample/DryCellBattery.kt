@@ -1,13 +1,14 @@
 package com.saifi369.daggerkotlinexample
 
-import javax.inject.Inject
-
 class DryCellBattery : Battery {
 
-    @Inject
-    constructor()
+    val voltage: Double
+
+    constructor(voltage: Double) {
+        this.voltage = voltage
+    }
 
     override fun ignite() {
-        Utils.showTag("DryCell Battery is ready")
+        Utils.showTag("DryCell Battery is ready, voltage, $voltage")
     }
 }
