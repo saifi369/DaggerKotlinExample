@@ -8,15 +8,15 @@ import dagger.Provides
 @Module
 class DryCellModule {
 
-    private val voltage: Double
-
-    constructor(voltage: Double) {
-        this.voltage = voltage
-    }
+//    private val voltage: Double
+//
+//    constructor(voltage: Double) {
+//        this.voltage = voltage
+//    }
 
     @Provides
-    fun provideBattery(): Battery {
-        return DryCellBattery(voltage)
+    fun provideBattery(dryCellBattery: DryCellBattery): Battery {
+        return dryCellBattery
     }
 
 
