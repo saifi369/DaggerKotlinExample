@@ -4,6 +4,7 @@ import com.saifi369.daggerkotlinexample.Car
 import com.saifi369.daggerkotlinexample.MainActivity
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Named
 
 @Component(modules = [EngineModule::class, DryCellModule::class])
 interface CarInjector {
@@ -18,7 +19,10 @@ interface CarInjector {
         fun build(): CarInjector
 
         @BindsInstance
-        fun setBatteryVoltage(voltage: Double): Builder
+        fun setBatteryVoltage(@Named("voltage") voltage: Double): Builder
+
+        @BindsInstance
+        fun setBatteryCapacity(@Named("capacity") capacity: Double): Builder
 
     }
 

@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         DaggerCarInjector.builder()
             .setBatteryVoltage(12.6)
+            .setBatteryCapacity(45.0)
             .build()
             .injectFields(this)
 
